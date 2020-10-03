@@ -4,7 +4,8 @@
 package com.cp.address;
 
 public class AddressBookMain {
-    public boolean someLibraryMethod() {
-        return true;
-    }
+	public static void main(String[] args) {
+		System.out.println("Welcome to address book ---");
+		Contacts contact = new Contacts();
+	}
 }
