@@ -87,7 +87,6 @@ public class Contacts {
 	public String getEmail() {
 		return email;
 	}
-
 	public boolean setEmail(String email) {
 		boolean bool = validateContact.validateEmail(email);
 		if (bool)
@@ -95,5 +94,6 @@ public class Contacts {
 		else
 			System.out.println("Enter Email Properly");
 		return bool;
+
 	}
 }
