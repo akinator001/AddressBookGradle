@@ -10,8 +10,5 @@ import com.cp.address.AddressBookMain;
 import static org.junit.Assert.*;
 
 public class AddressBookTest {
-    @Test public void testSomeLibraryMethod() {
-        AddressBookMain classUnderTest = new AddressBookMain();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
-    }
+    
 }
