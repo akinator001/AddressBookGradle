@@ -3,9 +3,62 @@
  */
 package com.cp.address;
 
+import java.util.Scanner;
+
 public class AddressBookMain {
 	public static void main(String[] args) {
 		System.out.println("Welcome to address book ---");
-		Contacts contact = new Contacts();
+		Scanner in = new Scanner(System.in);
+
+		Contacts person = new Contacts();
+		System.out.print("First Name: ");
+		while(true) {
+			boolean bool = person.setFirstName(in.next());
+			if(bool)
+				break;
+		}
+		
+		System.out.print("Last Name: ");
+		while(true) {
+			boolean bool = person.setLastName(in.next());
+			if(bool)
+				break;
+		}
+		
+		System.out.print("Address: ");
+		while(true) {
+			boolean bool = person.setAddress(in.next());
+			if(bool)
+				break;
+		}
+		
+		System.out.print("City: ");
+		while(true) {
+			boolean bool = person.setCity(in.next());
+			if(bool)
+				break;
+		}
+		
+		System.out.print("Zip: ");
+		while(true) {
+			boolean bool = person.setZip(in.next());
+			if(bool)
+				break;
+		}
+		
+		System.out.print("Phone Number: ");
+		while(true) {
+			boolean bool = person.setPhoneNo(in.next());
+			if(bool)
+				break;
+		}
+		
+		System.out.print("Email: ");
+		while(true) {
+			boolean bool = person.setEmail(in.next());
+			if(bool)
+				break;
+		}
+
 	}
 }
