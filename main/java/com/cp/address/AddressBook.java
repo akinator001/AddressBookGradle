@@ -75,12 +75,15 @@ public class AddressBook {
 		}
 	}
 	
-	public void editContact(String firstName, String lastName) {
+	public void editContact() {
 		if (contactList.size() == 0) {
 			System.out.println("There is no contact.");
 			return;
 		}
-		
+		System.out.println("Enter First Name :");
+    	String firstName = in.next();
+    	System.out.println("Enter Last Name :");
+    	String lastName = in.next();
 		String name = firstName+" "+lastName;
 		Boolean keyPresent = contactMap.containsKey(name);
 		if (keyPresent) {
