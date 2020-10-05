@@ -1,7 +1,7 @@
 package com.cp.address;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -12,7 +12,7 @@ public class AddressBook {
 	Scanner in = new Scanner(System.in);
 	
 	Map<String, Contacts> contactMap = new HashMap<>();
-    static List<Contacts> contactList = new LinkedList<>();
+    static List<Contacts> contactList = new ArrayList<>();
 
 	public Map<String, Contacts> getContactMap() {
 		return contactMap;
@@ -201,7 +201,13 @@ public class AddressBook {
 	public List<Contacts> searchPersonByState(String state) {
 		return contactList.stream().filter(person -> person.getState().equals(state)).collect(Collectors.toList());
 	}
-
 	
+	public int countPersonsByCity(String city) {
+		return contactList.stream().filter(person -> person.getCity().equals(city)).collect(Collectors.toList()).size();
+	}
+
+	public int countPersonsByState(String state) {
+		return contactList.stream().filter(person -> person.getState().equals(state)).collect(Collectors.toList()).size();
+	}	
 	
 }
