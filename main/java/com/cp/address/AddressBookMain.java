@@ -20,13 +20,8 @@ public class AddressBookMain {
         while(choice!= 4) {
 	        if(choice == 1)
 	        	addressbook.addContact();
-	        else if(choice == 2) {
-	        	System.out.println("Enter First Name :");
-	        	String firstName = in.next();
-	        	System.out.println("Enter Last Name :");
-	        	String lastName = in.next();
-	        	addressbook.editContact(firstName, lastName);
-	        }
+	        else if(choice == 2)
+	        	addressbook.editContact();
 	        else if (choice == 3)
 	        	addressbook.showDetails();
 	        else if(choice == 4)
