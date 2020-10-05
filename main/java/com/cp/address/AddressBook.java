@@ -147,4 +147,25 @@ public class AddressBook {
 		}
 	}	
 	
+	public void deleteContact() {
+		if (contactList.size() == 0) {
+			System.out.println("There is no contact.");
+			return;
+		}
+		System.out.println("Enter First Name :");
+    	String firstName = in.next();
+    	System.out.println("Enter Last Name :");
+    	String lastName = in.next();
+		String name = firstName+" "+lastName;
+		
+		Boolean keyPresent = contactMap.containsKey(name);
+		if (keyPresent) {
+			Contacts c = contactMap.get(name);
+			contactList.remove(c);
+			contactMap.remove(name);
+		} 
+		else {
+			System.out.println("This name is not present in address book.");
+		}
+	}	
 }

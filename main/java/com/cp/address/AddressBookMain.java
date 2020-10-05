@@ -14,10 +14,11 @@ public class AddressBookMain {
         System.out.println("Enter 1 to add contact");
         System.out.println("Enter 2 to edit contact");
         System.out.println("Enter 3 to see addressbook details");
-        System.out.println("Enter 4 to exit");
+        System.out.println("Enter 4 to delete contact");
+        System.out.println("Enter 5 to exit");
        
         int choice = in.nextInt();
-        while(choice!= 4) {
+        while(choice!= 5) {
 	        if(choice == 1)
 	        	addressbook.addContact();
 	        else if(choice == 2) {
@@ -29,7 +30,9 @@ public class AddressBookMain {
 	        }
 	        else if (choice == 3)
 	        	addressbook.showDetails();
-	        else if(choice == 4)
+	        else if(choice==4)
+	        	addressbook.deleteContact();
+	        else if(choice == 5)
 	        	break;
 	        else{
 	        	System.out.println("Please Enter Correct Choice Between 1-4 ");
