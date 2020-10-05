@@ -11,6 +11,10 @@ public class AddressBook {
 	ArrayList<Contacts> contactList = new ArrayList<>();
 	Map<String, Contacts> contactMap = new HashMap<>();
 	
+	public Map<String, Contacts> getContactMap() {
+		return contactMap;
+	}
+	
 	public void addContact(){
 		Contacts person = new Contacts();
 		System.out.print("First Name: ");
@@ -61,6 +65,14 @@ public class AddressBook {
 			if(bool)
 				break;
 		}
+		String name = person.getFirstName()+" "+person.getLastName();
+		Boolean keyPresent = contactMap.containsKey(name);
+		if (keyPresent) {
+			System.out.println("This name is already present\n");
+		}else {
+			contactMap.put(name, person);
+		}
+		
 	}
 	
 	public void showDetails() {
@@ -163,8 +175,6 @@ public class AddressBook {
 		
 		Boolean keyPresent = contactMap.containsKey(name);
 		if (keyPresent) {
-			Contacts c = contactMap.get(name);
-			contactList.remove(c);
 			contactMap.remove(name);
 		} 
 		else {
