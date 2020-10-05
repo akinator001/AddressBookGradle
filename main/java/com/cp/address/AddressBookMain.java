@@ -10,17 +10,30 @@ public class AddressBookMain {
 
 		Scanner in = new Scanner(System.in);
 		AddressBookList addressbooklist = new AddressBookList();
-		
+        AddressBook addressBook = new AddressBook();
+
 		System.out.println("Enter 1 to open addressbook");
 		System.out.println("Enter 2 to create new addressbook");
-		System.out.println("Enter 3 to exit");
+		System.out.println("Enter 3 to search persons in a city");
+		System.out.println("Enter 4 to search persons in a state");
+		System.out.println("Enter 5 to exit");
 		int option = in.nextInt();
-		while(option != 3) {
+		while(option != 5) {
 			if(option == 1)
 				addressbooklist.openAddressBook();
 			else if(option == 2)
 				addressbooklist.newAddressBook();
-			else if(option == 3)
+			else if(option == 3) {
+				System.out.println("Enter City");
+				String city = in.next();
+				System.out.println(addressBook.searchPersonByCity(city));
+			}
+			else if(option == 4) {
+				System.out.println("Enter State");
+				String state = in.next();
+				System.out.println(addressBook.searchPersonByState(state));
+			}
+			else if(option == 5)
 				break;
 			else
 				System.out.println("Enter Correct option");
