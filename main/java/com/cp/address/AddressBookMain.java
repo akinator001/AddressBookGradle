@@ -9,32 +9,26 @@ public class AddressBookMain {
 		System.out.println("Welcome to address book ---");
 
 		Scanner in = new Scanner(System.in);
-		AddressBook addressbook = new AddressBook();
+		AddressBookList addressbooklist = new AddressBookList();
 		
-        System.out.println("Enter 1 to add contact");
-        System.out.println("Enter 2 to edit contact");
-        System.out.println("Enter 3 to see addressbook details");
-        System.out.println("Enter 4 to delete contact");
-        System.out.println("Enter 5 to exit");
-       
-        int choice = in.nextInt();
-        while(choice!= 5) {
-	        if(choice == 1)
-	        	addressbook.addContact();
-	        else if(choice == 2)
-	        	addressbook.editContact();
-	        else if (choice == 3)
-	        	addressbook.showDetails();
-	        else if(choice==4)
-	        	addressbook.deleteContact();
-	        else if(choice == 5)
-	        	break;
-	        else{
-	        	System.out.println("Please Enter Correct Choice Between 1-4 ");
-	        }
-	        System.out.println("Enter Choice ::");
-	        choice = in.nextInt();
-        }
+		System.out.println("Enter 1 to open addressbook");
+		System.out.println("Enter 2 to create new addressbook");
+		System.out.println("Enter 3 to exit");
+		int option = in.nextInt();
+		while(option != 3) {
+			if(option == 1)
+				addressbooklist.openAddressBook();
+			else if(option == 2)
+				addressbooklist.newAddressBook();
+			else if(option == 3)
+				break;
+			else
+				System.out.println("Enter Correct option");
+			
+			
+			System.out.println("Enter Choice");
+			option = in.nextInt();
+		}
 		
 	}
 }
