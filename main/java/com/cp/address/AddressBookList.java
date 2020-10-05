@@ -1,6 +1,6 @@
 package com.cp.address;
 
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class AddressBookList {
 	Scanner in = new Scanner(System.in);
 	 Map<String, AddressBook> addressBookMap = new HashMap<>();
+	 ArrayList<AddressBook> addressList = new ArrayList<>();
 
 	 public Map<String, AddressBook> getAddressBookMap() {
 			return addressBookMap;
@@ -57,4 +58,15 @@ public class AddressBookList {
 		else
 			addressBookMap.put(bookName, addressBook);
 	}
+	public void showDetails() {
+		if(addressBookMap.size() == 0)
+			System.out.println("No Address Book is present");
+		else {
+			for (int i = 0; i < addressList.size(); i++) {
+				AddressBook addressBook = addressList.get(i);
+				addressBook.showDetails();
+		}
+	}
+
+}
 }

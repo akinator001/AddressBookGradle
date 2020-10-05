@@ -1,16 +1,19 @@
 package com.cp.address;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class AddressBook {
 	Scanner in = new Scanner(System.in);
-	ArrayList<Contacts> contactList = new ArrayList<>();
-	Map<String, Contacts> contactMap = new HashMap<>();
 	
+	Map<String, Contacts> contactMap = new HashMap<>();
+    static List<Contacts> contactList = new LinkedList<>();
+
 	public Map<String, Contacts> getContactMap() {
 		return contactMap;
 	}
@@ -78,6 +81,7 @@ public class AddressBook {
 			System.out.println("This name is already present\n");
 		}else {
 			contactMap.put(name, person);
+			contactList.add(person);
 		}
 		
 	}
@@ -183,9 +187,21 @@ public class AddressBook {
 		Boolean keyPresent = contactMap.containsKey(name);
 		if (keyPresent) {
 			contactMap.remove(name);
+			contactList.remove(contactMap.get(name));
 		} 
 		else {
 			System.out.println("This name is not present in address book.");
 		}
 	}	
+	
+	public List<Contacts> searchPersonByCity(String city) {
+		return contactList.stream().filter(person -> person.getCity().equals(city)).collect(Collectors.toList());
+	}
+
+	public List<Contacts> searchPersonByState(String state) {
+		return contactList.stream().filter(person -> person.getState().equals(state)).collect(Collectors.toList());
+	}
+
+	
+	
 }
