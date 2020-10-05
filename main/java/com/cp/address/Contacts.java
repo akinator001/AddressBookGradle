@@ -2,7 +2,7 @@ package com.cp.address;
 
 public class Contacts {
 
-	private String firstName, lastName, address, city, zip, phoneNo, email;
+	private String firstName, lastName, address, city, state, zip, phoneNo, email;
 
 	ValidateContact validateContact = new ValidateContact();
 
@@ -95,5 +95,18 @@ public class Contacts {
 			System.out.println("Enter Email Properly");
 		return bool;
 
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public boolean setState(String state) {
+		boolean bool = validateContact.validateState();
+		if(bool)
+			this.state = state;
+		else
+			System.out.println("Enter State properly");
+		return bool;
 	}
 }

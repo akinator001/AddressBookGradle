@@ -52,5 +52,9 @@ public class ValidateContact {
 		return b;
 	}
 
+	public boolean validateState() {
+		return true;
+	}
+
 	
 }

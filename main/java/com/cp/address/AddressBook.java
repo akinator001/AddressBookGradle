@@ -45,6 +45,13 @@ public class AddressBook {
 				break;
 		}
 		
+		System.out.print("State: ");
+		while(true) {
+			boolean bool = person.setState(in.next());
+			if(bool)
+				break;
+		}
+		
 		System.out.print("Zip: ");
 		while(true) {
 			boolean bool = person.setZip(in.next());
