@@ -210,4 +210,8 @@ public class AddressBook {
 		return contactList.stream().filter(person -> person.getState().equals(state)).collect(Collectors.toList()).size();
 	}	
 	
+	public List<Contacts> sortPersonsByName() {
+		return contactList.stream().sorted((a, b) -> a.getFirstName().compareTo(b.getFirstName())).collect(Collectors.toList());
+	}
+
 }

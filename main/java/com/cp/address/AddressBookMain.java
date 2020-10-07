@@ -18,9 +18,10 @@ public class AddressBookMain {
 		System.out.println("Enter 4 to search persons in a state");
 		System.out.println("Enter 5 to count persons in a city");
 		System.out.println("Enter 6 to count persons in a state");
-		System.out.println("Enter 7 to exit");
+		System.out.println("Enter 7 to see details of Addressbook");
+		System.out.println("Enter 8 to exit");
 		int option = in.nextInt();
-		while(option != 7) {
+		while(option != 8) {
 			if(option == 1)
 				addressbooklist.openAddressBook();
 			else if(option == 2)
@@ -45,7 +46,10 @@ public class AddressBookMain {
 				String city = in.next();
 				System.out.println(addressBook.countPersonsByCity(city));
 			}
-			else if(option == 7)
+			else if(option ==7) {
+				addressbooklist.showAllDetails();
+			}
+			else if(option == 8)
 				break;
 			else
 				System.out.println("Enter Correct option");
