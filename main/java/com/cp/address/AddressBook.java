@@ -213,5 +213,16 @@ public class AddressBook {
 	public List<Contacts> sortPersonsByName() {
 		return contactList.stream().sorted((a, b) -> a.getFirstName().compareTo(b.getFirstName())).collect(Collectors.toList());
 	}
+	public List<Contacts> sortPersonsByCity() {
+		return contactList.stream().sorted((a, b) -> a.getCity().compareTo(b.getCity())).collect(Collectors.toList());
+	}
+
+	public List<Contacts> sortPersonsByState() {
+		return contactList.stream().sorted((a, b) -> a.getState().compareTo(b.getState())).collect(Collectors.toList());
+	}
+
+	public List<Contacts> sortPersonsByZip() {
+		return contactList.stream().sorted((a, b) -> a.getZip().compareTo(b.getZip())).collect(Collectors.toList());
+	}
 
 }
