@@ -1,6 +1,22 @@
 package com.cp.address;
 
 public class Contacts {
+	
+	public Contacts(){
+		
+	}
+	
+	public Contacts(String firstName, String lastName, String address, String city, String state, String zip,
+			String phoneNo, String email) {
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+		this.setAddress(address);
+		this.setCity(city);
+		this.setState(state);
+		this.setZip(zip);
+		this.setPhoneNo(phoneNo);
+		this.setEmail(email);
+	}
 
 	private String firstName, lastName, address, city, state, zip, phoneNo, email;
 
@@ -109,4 +125,11 @@ public class Contacts {
 			System.out.println("Enter State properly");
 		return bool;
 	}
+	
+	@Override
+	public String toString() {
+		return "FirstName : " + firstName + " LastName : " + lastName + " Address : " + address + " City : " + city
+				+ " State : " + state + " Zip : " + zip + " Phone No : " + phoneNo + " Email : " + email;
+	}
+	
 }
