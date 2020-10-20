@@ -1,6 +1,7 @@
 package com.cp.address;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -8,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -25,6 +25,9 @@ public class AddressBookFileIOService {
 	public static final String SAMPLE_CSV_FILE_PATH = "./demo.csv";
 	public static final String SAMPLE_CSV_FILE_PATH2 = "./demo2.csv";
 	
+	public static final String SAMPLE_JSON_FILE_PATH = "./demo.json";
+	public static final String SAMPLE_JSON_FILE_PATH2 = "./demo2.json";
+
 	public List<Contacts> readData() {
 		List<Contacts> contactsList = new ArrayList<>();
 		try {
@@ -93,4 +96,36 @@ public class AddressBookFileIOService {
 		}
 		return true;
 	}	
+	
+	public boolean writeJsonData(List<Contacts> contactList) {
+		Gson gson = new Gson();
+		String json = gson.toJson(contactList);
+		try {
+			FileWriter fileWriter = new FileWriter(SAMPLE_JSON_FILE_PATH);
+			fileWriter.write(json);
+			fileWriter.close();
+			return true;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean readJsonFile(){
+		try {
+			Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_JSON_FILE_PATH2));
+			JsonParser jsonParser = new JsonParser();
+			JsonElement obj = jsonParser.parse(reader);
+			JsonArray contactList = (JsonArray) obj;
+			System.out.println(contactList);
+
+			return true;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 }
