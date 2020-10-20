@@ -1,11 +1,37 @@
 package com.cp.address;
 
+import com.opencsv.bean.CsvBindByName;
+
 public class Contacts {
 	
-	public Contacts(){
+	@CsvBindByName
+	private String firstName;
+
+	@CsvBindByName
+	private String lastName;
+
+	@CsvBindByName
+	private String address;
+
+	@CsvBindByName
+	private String city;
+
+	@CsvBindByName
+	private String state;
+
+	@CsvBindByName
+	private String zip;
+
+
+	@CsvBindByName(column = "PhoneNumber")
+	private String phoneNo;
+
+	@CsvBindByName
+	private String email;
+	
+	public Contacts() {
 		
 	}
-	
 	public Contacts(String firstName, String lastName, String address, String city, String state, String zip,
 			String phoneNo, String email) {
 		this.setFirstName(firstName);
@@ -18,7 +44,6 @@ public class Contacts {
 		this.setEmail(email);
 	}
 
-	private String firstName, lastName, address, city, state, zip, phoneNo, email;
 
 	ValidateContact validateContact = new ValidateContact();
 
